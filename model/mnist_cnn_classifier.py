@@ -95,11 +95,16 @@ class MNISTCNNClassifier(MNISTClassifier):
                                    validation_steps=self.validation_steps,
                                    callbacks=[modelCheckpoint, earlyStopping])
 
-        saved_model = keras.models.load_model(self.output_dir + '/weights-cnn-mnist.hdf5')
-        final_loss, final_acc = saved_model.evaluate(X_test, y_test, verbose=1)
+        # Save the current model.
+        model.save(filepath=self.output_dir + '/model-cnn-mnist.hdf5')
+
+        # Load the best weights.
+        model.load_weights(filepath=self.output_dir + '/weights-cnn-mnist.hdf5')
+
+        final_loss, final_acc = model.evaluate(X_test, y_test, verbose=1)
         print("Final loss: {0:.4f}, final accuracy: {1:.4f}".format(final_loss, final_acc))
 
-        y_hat = saved_model.predict(self.X_test_sub, verbose=2)
+        y_hat = model.predict(self.X_test_sub, verbose=2)
         y_hat = np.argmax(y_hat, axis=1)
         self.save_submission(y_hat)
 
