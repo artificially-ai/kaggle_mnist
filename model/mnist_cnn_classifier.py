@@ -90,7 +90,7 @@ class MNISTCNNClassifier(MNISTClassifier):
         model.fit_generator(train_generator,
                                    steps_per_epoch=self.steps_per_epoch,
                                    epochs=self.epochs,
-                                   verbose=1,
+                                   verbose=2,
                                    validation_data=validation_generator,
                                    validation_steps=self.validation_steps,
                                    callbacks=[modelCheckpoint, earlyStopping])
