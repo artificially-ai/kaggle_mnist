@@ -1,12 +1,12 @@
 {
   "n_classes" : 10,
-  "epochs" : 100,
-  "steps_per_epoch" : 3500,
-  "validation_steps" : 3500,
+  "epochs" : 80,
+  "steps_per_epoch" : 3000,
+  "validation_steps" : 1500,
   "batch_size" : 64,
   "patience" : 15,
   "test_split" : 0.2,
   "activation_fn" : "relus",
-  "e_param" : 0.02,
+  "e_param" : 0.01,
   "dropout" : 0.25
 }
