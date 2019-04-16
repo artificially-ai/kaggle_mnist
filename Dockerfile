@@ -1,6 +1,6 @@
 FROM ekholabs/nvidia-cuda
 
-MAINTAINER Wilder Rodrigues <wilder.rodrigues@ekholabs.ai>
+MAINTAINER Wilder Rodrigues <wilder@aigent.com>
 
 RUN conda install -c conda-forge tensorflow-gpu -y && \
     conda install -c conda-forge numpy keras -y && \
